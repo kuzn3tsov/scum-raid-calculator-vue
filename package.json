@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "test": "vitest",
     "test:run": "vitest run",
     "test:watch": "vitest",
@@ -27,8 +29,10 @@
     "@testing-library/vue": "^6.6.1",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/test-utils": "^2.4.3",
+    "gh-pages": "^6.3.0",
     "jsdom": "^22.1.0",
     "vite": "^5.0.12",
     "vitest": "^1.2.2"
-  }
+  },
+  "homepage": "https://kuzn3tsov.github.io/scum-raid-calculator-vue"
 }
