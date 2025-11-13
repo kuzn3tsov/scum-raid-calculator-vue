@@ -50,3 +50,47 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#explosive-list {
+  margin-bottom: 20px;
+  background: var(--tertiary-bg);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#explosive-list h2 {
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  font-family: 'Russo One', sans-serif;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+  text-shadow: none;
+}
+
+#explosive-list input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+  accent-color: var(--accent-color);
+}
+
+#explosive-list label {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  padding-left: 8px;
+  transition: all 0.3s ease;
+}
+
+#explosive-list label:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#explosive-list label:has(input:checked) {
+  color: #2ecc71;
+  font-weight: bold;
+}
+</style>

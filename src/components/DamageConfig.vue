@@ -306,3 +306,236 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.damage-config-gui {
+    background: var(--tertiary-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.config-intro {
+    background: rgba(94, 80, 64, 0.3);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.config-intro h3 {
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.3em;
+}
+
+.config-intro ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.config-intro li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.config-form {
+    margin-bottom: 20px;
+}
+
+.element-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.element-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.damage-fields {
+    margin: 20px 0;
+}
+
+.element-section {
+    margin-bottom: 25px;
+}
+
+.material-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--secondary-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.material-item:hover {
+    border-left-color: var(--accent-color);
+    transform: translateX(2px);
+}
+
+.material-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.material-name {
+    color: var(--accent-color);
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.health-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.health-input-group label {
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.health-input {
+    width: 100px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.health-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.damage-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.damage-header {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.damage-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #4a3f33;
+}
+
+.explosive-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.damage-input {
+    width: 80px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.damage-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#export-config-btn {
+    padding: 12px 30px;
+    background: #27ae60;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+#export-config-btn:hover {
+    background: #219653;
+}
+
+#reset-config-btn {
+    padding: 12px 30px;
+    background: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+    margin-left: 10px;
+}
+
+#reset-config-btn:hover {
+    background: #c0392b;
+}
+
+.reset-icon {
+    font-size: 1.1em;
+}
+
+.config-notes {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(94, 80, 64, 0.2);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.note-icon {
+    color: var(--accent-color);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+</style>

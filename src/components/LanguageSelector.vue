@@ -37,3 +37,60 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--border-color);
+    padding: 8px 10px;
+    border-radius: 8px;
+    min-width: auto;
+    flex-shrink: 0;
+    height: 40px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.language-selector:hover {
+    background: var(--border-light);
+}
+
+.language-icon {
+    color: var(--accent-color);
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+.language-selector select {
+    background: transparent;
+    color: var(--text-primary);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+    flex: 1;
+    outline: none;
+    min-width: 0;
+    font-family: inherit;
+    font-weight: bold;
+    width: 40px;
+}
+
+.language-selector select option {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .language-selector {
+        padding: 8px;
+        min-width: 44px;
+        justify-content: center;
+    }
+}
+</style>

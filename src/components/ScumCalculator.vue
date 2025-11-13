@@ -325,3 +325,285 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+/* Header & Language Selector */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.title-icon {
+  font-size: 2em;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+  color: var(--accent-color);
+  margin: 0;
+  font-size: clamp(1.2em, 3.5vw, 1.6em);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+/* Header Controls */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Settings Gear Icon */
+.settings-gear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--border-color);
+  color: var(--accent-color);
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.settings-gear:hover {
+  background: var(--border-light);
+  transform: rotate(90deg);
+}
+
+.gear-icon {
+  font-size: 1.2em;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Translation CTA Styles */
+.translation-cta {
+  margin-top: 15px;
+  padding: 12px 15px;
+  background: var(--tertiary-bg);
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  text-align: center;
+  border: 1px dashed var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.translation-cta:hover {
+  background: var(--border-light);
+  transform: translateY(-1px);
+}
+
+.cta-icon {
+  color: var(--accent-color);
+  font-size: 1em;
+}
+
+/* Translation Note Footer */
+.translation-note {
+  margin-top: 25px;
+  padding: 12px 15px;
+  background: var(--tertiary-bg);
+  border-radius: 6px;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  text-align: center;
+  border-left: 3px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.note-icon {
+  color: var(--accent-color);
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+
+.translation-note span {
+  flex: 1;
+}
+
+.translation-note a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.translation-note a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .title-section {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  h1 {
+    white-space: normal;
+    text-overflow: clip;
+    font-size: clamp(1.1em, 4vw, 1.4em);
+  }
+
+  .header-controls {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .theme-toggle .theme-text {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding: 8px;
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .language-selector {
+    padding: 8px;
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .settings-gear {
+    padding: 8px;
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .title-icon {
+    font-size: 1.6em;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .translation-note {
+    font-size: 0.8em;
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .translation-cta {
+    padding: 10px 12px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .title-section {
+    justify-content: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(1em, 5vw, 1.3em);
+  }
+
+  .title-icon {
+    font-size: 1.4em;
+  }
+
+  .header-controls {
+    gap: 8px;
+  }
+
+  .language-selector,
+  .theme-toggle,
+  .settings-gear {
+    flex: 1;
+    min-width: 0;
+    height: 36px;
+  }
+
+  .action-buttons {
+    gap: 10px;
+  }
+
+  .translation-note {
+    font-size: 0.75em;
+    padding: 8px 10px;
+  }
+
+  .translation-note a {
+    word-break: break-all;
+  }
+}
+</style>

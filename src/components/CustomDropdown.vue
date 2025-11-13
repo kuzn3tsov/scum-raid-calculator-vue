@@ -84,3 +84,98 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.custom-select {
+  position: relative;
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.select-selected:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.select-items {
+  position: absolute;
+  background-color: var(--border-color);
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  overflow-y: auto;
+  max-height: 300px;
+  z-index: 99;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+}
+
+.select-hide {
+  display: none;
+}
+
+.dropdown-group {
+  font-weight: bold;
+  color: var(--accent-color);
+  padding: 8px 12px;
+  background: var(--tertiary-bg);
+  cursor: default;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-option {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.dropdown-option:hover {
+  background: var(--border-light);
+}
+
+.no-data {
+  color: var(--text-muted);
+  cursor: not-allowed;
+  font-style: italic;
+}
+
+/* Scrollbar styling */
+.select-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-items::-webkit-scrollbar-track {
+  background: var(--tertiary-bg);
+  border-radius: 0 0 8px 0;
+}
+
+.select-items::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+.select-items {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) var(--tertiary-bg);
+}
+</style>
