@@ -77,18 +77,27 @@
                                 </div>
                             </div>
 
-                            <div class="damage-grid">
-                                <div class="damage-header">
-                                    <span>{{ $t('damageConfig.explosiveLabel') }}</span>
-                                    <span>{{ $t('damageConfig.damageLabel') }}</span>
+                            <div class="damage-columns-container">
+                                <div class="explosives-column">
+                                    <h5 class="column-title">{{ $t('damageConfig.explosiveLabel') }}</h5>
+                                    <div class="explosives-list">
+                                        <div v-for="(damageValue, explosive) in data.damage" :key="explosive"
+                                            class="explosive-item">
+                                            <span class="explosive-name">{{ getExplosiveName(explosive) }}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div v-for="(damageValue, explosive) in data.damage" :key="explosive"
-                                    class="damage-row">
-                                    <span class="explosive-name">{{ getExplosiveName(explosive) }}</span>
-                                    <input type="number"
-                                        v-model.number="elementData[element][material].damage[explosive]"
-                                        class="damage-input" min="0"
-                                        @input="validateDamage(element, material, explosive)" />
+                                <div class="damage-column">
+                                    <h5 class="column-title">{{ $t('damageConfig.damageLabel') }}</h5>
+                                    <div class="damage-inputs">
+                                        <div v-for="(damageValue, explosive) in data.damage" :key="explosive"
+                                            class="damage-input-item">
+                                            <input type="number"
+                                                v-model.number="elementData[element][material].damage[explosive]"
+                                                class="damage-input" min="0"
+                                                @input="validateDamage(element, material, explosive)" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -389,23 +398,29 @@ export default {
     margin-bottom: 15px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .material-name {
     color: var(--accent-color);
     margin: 0;
     font-size: 1.1em;
+    flex: 1;
+    min-width: 200px;
 }
 
 .health-input-group {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .health-input-group label {
     color: var(--text-secondary);
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .health-input {
@@ -424,42 +439,56 @@ export default {
     border-color: var(--accent-color);
 }
 
-.damage-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    align-items: center;
-    margin-top: 10px;
+/* Two columns layout for Explosives and Damage */
+.damage-columns-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
-.damage-header {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-color);
-    font-weight: bold;
+.explosives-column,
+.damage-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.column-title {
     color: var(--accent-color);
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
 }
 
-.damage-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
+.explosives-list,
+.damage-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.explosive-item,
+.damage-input-item {
+    display: flex;
     align-items: center;
-    padding: 6px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #4a3f33;
+    min-height: 40px;
 }
 
 .explosive-name {
     color: var(--text-primary);
     font-weight: 500;
+    text-align: left;
+    width: 100%;
 }
 
 .damage-input {
-    width: 80px;
-    padding: 6px 8px;
+    width: 100%;
+    max-width: 120px;
+    padding: 8px 10px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     background: var(--primary-bg);
@@ -537,5 +566,51 @@ export default {
     color: var(--accent-color);
     margin-top: 2px;
     flex-shrink: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .damage-columns-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .material-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .material-name {
+        min-width: auto;
+    }
+
+    .health-input-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .explosives-column,
+    .damage-column {
+        width: 100%;
+    }
+
+    .damage-input {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .explosive-item,
+    .damage-input-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .damage-input {
+        width: 100%;
+    }
 }
 </style>
